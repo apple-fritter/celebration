@@ -10,3 +10,4 @@ Here are some examples of how I have made my life in the BASH shell more comfort
 
 "cleaning_routine.sh" will Rebuild Mozilla Firefox configuration from scratch, assuming there was a backup skeleton present, and then will clean up the home directory, Adobe Reader cache MRU and temp files, bash history, backup DS_Store Thumbs.db and tmp files, clean up gedit recent documents, Gnome run command and search history, clean up LibreOffice links2 SQLite3 histories, clean up system clipboard, desktop entry files and recent documents, and empty trashes.
 
+As uploaded, the bashrcs follow a naming convention that should be easy to interpret.
