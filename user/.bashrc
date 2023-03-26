@@ -63,7 +63,7 @@ alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko
 # System management shell scripts
 alias kleen="sh ~/cleaning_routine.sh"
 alias sorter="sh /root/nodupes.sh"
-alias zerofill="sh ~/unclefill.sh"
+alias zerofill="sh /root/unclefill.sh"
 
 PS1='[\u \h] \w '
 PS2='▓▒░ '
