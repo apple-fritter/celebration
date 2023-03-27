@@ -61,7 +61,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0"'
 
 # System management shell scripts
-alias kleen="sh ~/cleaning_routine.sh"
+alias shcln="sh ~/cleaning_routine.sh"
 alias sorter="sh /root/nodupes.sh"
 alias zerofill="sh /root/unclefill.sh"
 
