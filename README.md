@@ -1,4 +1,4 @@
-# bash environment goodies
+# .bashrc and shell scripts for extra cushion
 In this repository, I have shared how I configured my bash environment in Linux to enhance productivity and facilitate purpose-specific tasks that previously took a long time to process manually. By sharing my scripts and configurations, I hope to contribute to the community's efforts to improve their workflow and achieve better results. Whether you're a seasoned Linux user or just starting out, these scripts and configurations can help you streamline your workflow, reduce errors, and increase efficiency. So take a look, try them out, and let me know what you think!
 
 The bashrc files included in this project are designed to enhance the user experience and productivity when working in the BASH shell.
