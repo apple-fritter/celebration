@@ -14,7 +14,7 @@ The format of the history command and history ignoring commands are also set to 
 
 ## Scripts:
 
-#### Root:
+### Root:
 The "cleaning_routine.admin.sh" script is designed to be run from a root prompt and performs a series of clean-up tasks to optimize system performance. It starts by scanning for all schema files that are not used by any installed applications and removes them to free up space. Additionally, the script clears out unnecessary files, such as backup, DS_Store, Thumbs.db, and tmp files, which can accumulate over time and take up valuable storage space.
 
 In addition to cleaning up specific files, the script also performs general system maintenance tasks, such as clearing the Java cache, SQLite3 history, system cache, rotated logs, and thumbnail cache. It also removes packages that are no longer needed and clears the local package cache.
