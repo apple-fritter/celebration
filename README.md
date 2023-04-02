@@ -3,7 +3,7 @@ With These Bash Configurations and Shell Scripts. Discover how the power of a pr
 
 
 ## The .bashrc files included
-The bashrc files provided in this project have been developed to improve users' experience and productivity when working in the BASH shell.
+The .bashrc files provided in this project have been developed to improve users' experience and productivity when working in the BASH shell.
 
 One of the notable features of these files is the visually appealing divider that displays the time and date stamp between prompts. This not only enhances the shell's appearance but also aids in debugging.
 
