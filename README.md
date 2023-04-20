@@ -28,4 +28,4 @@ The script cleans up the home directory, which includes gedit recent documents, 
 
 ## License
 
-This files released under the [MIT License](LICENSE).
+These files released under the [MIT License](LICENSE).
