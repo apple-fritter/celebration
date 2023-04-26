@@ -23,7 +23,7 @@ The script cleans up the home directory, which includes gedit recent documents, 
 
 * `unclefill.sh` quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
 
-## User:
+### User:
 * `cleaning_routine.sh` optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. These include Adobe Reader cache, MRU and temp files, bash history, backup DS_Store, Thumbs.db and tmp files, gedit recent documents, Gnome run command and search history, LibreOffice, links2, and SQLite3 histories, system clipboard, desktop entry files, and recent documents. Finally, the script empties all trashes
 
 ## [Disclaimer](DISCLAIMER)
