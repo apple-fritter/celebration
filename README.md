@@ -2,7 +2,11 @@
 Discover how a properly formatted workspace can help you unleash your creative potential and bring your ideas to life with optimized configurations and scripts. Streamline your workflow, reduce errors, and create with ease by trying them out today.
 
 ## .bashrc Files
-The `.bashrc` files in this project improve your experience and productivity when working in the BASH shell. Notable features include a visually appealing divider displaying the time and date stamp between prompts, which enhances the shell's appearance and aids in debugging. Prompt levels PS1 and PS2 have been defined, enhancing the prompt's appearance.
+The `.bashrc` files in this project improve your experience and productivity when working in the BASH shell.
+
+Notable features include a visually appealing divider displaying the time and date stamp between prompts, which enhances the shell's appearance and aids in debugging.
+
+Prompt levels PS1 and PS2 have been defined, enhancing the prompt's appearance.
 
 The `.bashrc` files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity. For instance, they
 * Establish the time format for long-running commands
