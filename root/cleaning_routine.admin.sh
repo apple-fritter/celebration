@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Clean up home directory
-cd ~
+cd /
 rm -rv .cache/
 rm -v .wget-hsts
 
