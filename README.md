@@ -5,6 +5,8 @@ Discover how a properly formatted workspace can help you unleash your creative p
 
 ## .bashrc Files
 The `.bashrc` files in this project improve your experience and productivity when working in the BASH shell.
+- [superuser](https://github.com/apple-fritter/celebration/blob/main/root/.bashrc)
+- [regular user](https://github.com/apple-fritter/celebration/blob/main/user/.bashrc)
 
 Notable features include a visually appealing divider displaying the time and date stamp between prompts, which enhances the shell's appearance and aids in debugging.
 
