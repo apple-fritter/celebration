@@ -124,6 +124,8 @@ Start Script
 End Script
 ```
 
+> The while loop continuously appends the contents of the input file to the output file indefinitely, which may result in an infinite loop. You may want to consider adding a condition or an exit condition within the loop to ensure it doesn't run indefinitely.
+
 ---
 
 ### Regular User Scripts:
