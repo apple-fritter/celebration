@@ -25,7 +25,7 @@ The `.bashrc` files also comprise various settings and aliases that streamline f
 ## Scripts:
 ### Superuser scripts:
 #### [cleaning_routine.admin.sh](https://github.com/apple-fritter/celebration/blob/main/root/cleaning_routine.admin.sh)
-`cleaning_routine.admin.sh` script executes a sequence of cleanup tasks to optimize system performance. It scans for all schema files that are not utilized by any installed applications and removes them to free up space.
+Executes a sequence of cleanup tasks to optimize system performance. It scans for all schema files that are not utilized by any installed applications and removes them to free up space.
 
 ```
 Start Script
@@ -70,7 +70,7 @@ End Script
 ```
 
 #### [nodupes.sh](https://github.com/apple-fritter/celebration/blob/main/root/nodupes.sh)
-`nodupes.sh` sorts a text file alphabetically and eliminates duplicated lines, saving time and effort while ensuring data accuracy and integrity. 
+Sorts a text file alphabetically and eliminates duplicated lines, saving time and effort while ensuring data accuracy and integrity. 
 
 ```
 Start Script
@@ -87,7 +87,7 @@ End Script
 ```
 
 #### [update_installed_packages.sh](https://github.com/apple-fritter/celebration/blob/main/root/update_installed_packages.sh)
-`update_installed_packages.sh` automates the process of updating all installed software packages on your system. By running the script from a root prompt, it will automatically search for and install any available updates. This saves time and effort while also keeping your system secure and up-to-date.
+Automates the process of updating all installed software packages on your system. By running the script from a root prompt, it will automatically search for and install any available updates. This saves time and effort while also keeping your system secure and up-to-date.
 ```
 Start Script
 |
@@ -101,7 +101,7 @@ End Script
 ```
 
 #### [unclefill.sh](https://github.com/apple-fritter/celebration/blob/main/root/unclefill.sh)
-`unclefill.sh` quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
+Quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
 ```
 Start Script
 |
@@ -128,7 +128,7 @@ End Script
 
 ### Regular User Scripts:
 #### [cleaning_routine.sh](https://github.com/apple-fritter/celebration/blob/main/user/cleaning_routine.sh)
-`cleaning_routine.sh` optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. 
+Optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. 
 ```
 Start Script
 |
