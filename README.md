@@ -31,37 +31,37 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 Start Script
 |
 ├─ Clean up home directory
-|  ├─ Remove .cache/ directory
-|  └─ Remove .wget-hsts
+|   ├─ Remove .cache/ directory
+|   └─ Remove .wget-hsts
 |
 ├─ Check if the schema directory exists
-|  ├─ Directory doesn't exist
-|  |     └─ Display "Directory <schema_dir> not found." and exit
-|  └─ Continue to next step
+|   ├─ Directory doesn't exist
+|   |       └─ Display "Directory <schema_dir> not found." and exit
+|   └─ Continue to next step
 |
 ├─ Find unused schema files
-|  ├─ Find all schema files in <schema_dir> that don't contain "gettext"
-|  └─ Store list of unused schema files in UNUSED_SCHEMAS
+|   ├─ Find all schema files in <schema_dir> that don't contain "gettext"
+|   └─ Store list of unused schema files in UNUSED_SCHEMAS
 |
 ├─ Remove unused schema files
-|  ├─ Loop for each schema in UNUSED_SCHEMAS
-|  |     ├─ Remove the schema file
-|  |     └─ Display "Removed <schema_file>"
-|  └─ Compile the remaining schema files
+|   ├─ Loop for each schema in UNUSED_SCHEMAS
+|   |       ├─ Remove the schema file
+|   |       └─ Display "Removed <schema_file>"
+|   └─ Compile the remaining schema files
 |
 ├─ Clean up
-|  ├─ bash history
-|  ├─ backup files
-|  ├─ DS_Store files
-|  ├─ Thumbs.db files
-|  ├─ tmp files
-|  ├─ Java cache
-|  ├─ SQLite3 history
-|  ├─ system cache
-|  ├─ rotated logs
-|  ├─ trash
-|  ├─ thumbnail cache
-|  └─ X11 debug logs
+|   ├─ bash history
+|   ├─ backup files
+|   ├─ DS_Store files
+|   ├─ Thumbs.db files
+|   ├─ tmp files
+|   ├─ Java cache
+|   ├─ SQLite3 history
+|   ├─ system cache
+|   ├─ rotated logs
+|   ├─ trash
+|   ├─ thumbnail cache
+|   └─ X11 debug logs
 |
 ├─ Remove packages that are no longer needed
 ├─ Clear the local package cache
