@@ -28,100 +28,100 @@ The `.bashrc` files also comprise various settings and aliases that streamline f
 Executes a sequence of cleanup tasks to optimize system performance. It scans for all schema files that are not utilized by any installed applications and removes them to free up space.
 
 ```
-Start Script
-|
+┌─ Start Script
+│
 ├─ Clean up home directory
-|   ├─ Remove .cache/ directory
-|   └─ Remove .wget-hsts
-|
+│   ├─ Remove .cache/ directory
+│   └─ Remove .wget-hsts
+│
 ├─ Check if the schema directory exists
-|   ├─ Directory doesn't exist
-|   |       └─ Display "Directory <schema_dir> not found." and exit
-|   └─ Continue to next step
-|
+│   ├─ Directory doesn't exist
+│   │       └─ Display "Directory <schema_dir> not found." and exit
+│   └─ Continue to next step
+│
 ├─ Find unused schema files
-|   ├─ Find all schema files in <schema_dir> that don't contain "gettext"
-|   └─ Store list of unused schema files in UNUSED_SCHEMAS
-|
+│   ├─ Find all schema files in <schema_dir> that don't contain "gettext"
+│   └─ Store list of unused schema files in UNUSED_SCHEMAS
+│
 ├─ Remove unused schema files
-|   ├─ Loop for each schema in UNUSED_SCHEMAS
-|   |       ├─ Remove the schema file
-|   |       └─ Display "Removed <schema_file>"
-|   └─ Compile the remaining schema files
-|
+│   ├─ Loop for each schema in UNUSED_SCHEMAS
+│   │       ├─ Remove the schema file
+│   │       └─ Display "Removed <schema_file>"
+│   └─ Compile the remaining schema files
+│
 ├─ Clean up
-|   ├─ bash history
-|   ├─ backup files
-|   ├─ DS_Store files
-|   ├─ Thumbs.db files
-|   ├─ tmp files
-|   ├─ Java cache
-|   ├─ SQLite3 history
-|   ├─ system cache
-|   ├─ rotated logs
-|   ├─ trash
-|   ├─ thumbnail cache
-|   └─ X11 debug logs
-|
+│   ├─ bash history
+│   ├─ backup files
+│   ├─ DS_Store files
+│   ├─ Thumbs.db files
+│   ├─ tmp files
+│   ├─ Java cache
+│   ├─ SQLite3 history
+│   ├─ system cache
+│   ├─ rotated logs
+│   ├─ trash
+│   ├─ thumbnail cache
+│   └─ X11 debug logs
+│
 ├─ Remove packages that are no longer needed
 ├─ Clear the local package cache
-|
-End Script
+│
+└─ End Script
 ```
 
 #### [nodupes.sh](https://github.com/apple-fritter/celebration/blob/main/root/nodupes.sh)
 Sorts a text file alphabetically and eliminates duplicated lines, saving time and effort while ensuring data accuracy and integrity. 
 
 ```
-Start Script
-|
+┌─ Start Script
+│
 ├─ Sort the contents of file <input_file>
-|     └─ Store the sorted output in a temporary file <input_file>.tmp
-|
+│     └─ Store the sorted output in a temporary file <input_file>.tmp
+│
 ├─ Remove duplicate lines from the sorted output
-|     └─ Store the unique lines in the temporary file <input_file>.tmp
-|
+│     └─ Store the unique lines in the temporary file <input_file>.tmp
+│
 ├─ Rename the temporary file <input_file>.tmp to <input_file>
-|
-End Script
+│
+└─ End Script
 ```
 
 #### [update_installed_packages.sh](https://github.com/apple-fritter/celebration/blob/main/root/update_installed_packages.sh)
 Automates the process of updating all installed software packages on your system. By running the script from a root prompt, it will automatically search for and install any available updates. This saves time and effort while also keeping your system secure and up-to-date.
 ```
-Start Script
-|
+┌─ Start Script
+│
 ├─ Run apt-get update command
-|     └─ Automatically answer "yes" to any prompts
-|
+│     └─ Automatically answer "yes" to any prompts
+│
 ├─ Run apt-get dist-upgrade command
-|     └─ Automatically answer "yes" to any prompts
-|
-End Script
+│     └─ Automatically answer "yes" to any prompts
+│
+└─ End Script
 ```
 
 #### [unclefill.sh](https://github.com/apple-fritter/celebration/blob/main/root/unclefill.sh)
 Quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
 ```
-Start Script
-|
+┌─ Start Script
+│
 ├─ Define input_file and output_file variables from command line arguments
-|     └─ Assign the value of the first command line argument to input_file
-|     └─ Assign the value of the second command line argument to output_file
-|
+│     └─ Assign the value of the first command line argument to input_file
+│     └─ Assign the value of the second command line argument to output_file
+│
 ├─ Check if either input_file or output_file is empty
-|     ├─ If either file is empty
-|     |     └─ Prompt user for input file path
-|     |     └─ Prompt user for output file path
-|     └─ If both input_file and output_file are provided
-|           └─ Check if the number of arguments is greater than 2
-|                 └─ Display an error message to stderr
-|                 └─ Exit the script with status code 1
-|
+│     ├─ If either file is empty
+│     │     └─ Prompt user for input file path
+│     │     └─ Prompt user for output file path
+│     └─ If both input_file and output_file are provided
+│           └─ Check if the number of arguments is greater than 2
+│                 └─ Display an error message to stderr
+│                 └─ Exit the script with status code 1
+│
 ├─ Use a while loop to continuously append input_file contents to output_file
-|     └─ Append the contents of input_file to output_file
-|
-End Script
+│     └─ Append the contents of input_file to output_file
+│
+└─ End Script
 ```
 
 > The while loop continuously appends the contents of the input file to the output file indefinitely, which may result in an infinite loop. You may want to consider adding a condition or an exit condition within the loop to ensure it doesn't run indefinitely.
@@ -132,41 +132,41 @@ End Script
 #### [cleaning_routine.sh](https://github.com/apple-fritter/celebration/blob/main/user/cleaning_routine.sh)
 Optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. 
 ```
-Start Script
-|
+┌─ Start Script
+│
 ├─ Set working directory to the user's home
-|
+│
 ├─ Remove
-|  ├─ .wget-hsts
-|  ├─ .cache/ directory
-|  ├─ .android/ directory
-|  ├─ .mozilla/ directory
-|  ├─ .bash_history
-|  └─ .sudo_as_admin_successful
-|
+│  ├─ .wget-hsts
+│  ├─ .cache/ directory
+│  ├─ .android/ directory
+│  ├─ .mozilla/ directory
+│  ├─ .bash_history
+│  └─ .sudo_as_admin_successful
+│
 ├─ Rebuild Mozilla Firefox configuration from backup skeleton using p7zip
-|
+│
 ├─ Clean up
-|  ├─ Adobe Reader cache
-|  ├─ Adobe Reader MRU
-|  ├─ Adobe Reader tmp files
-|  ├─ bash history
-|  ├─ backup files
-|  ├─ DS_Store files
-|  ├─ Thumbs.db files
-|  ├─ tmp files
-|  ├─ gedit recent documents
-|  ├─ Gnome run command history
-|  ├─ Gnome search history
-|  ├─ LibreOffice history
-|  ├─ links2 history
-|  ├─ SQLite3 history
-|  ├─ system clipboard
-|  ├─ desktop entry files
-|  ├─ recent documents
-|  └─ trash
-|
-End Script
+│  ├─ Adobe Reader cache
+│  ├─ Adobe Reader MRU
+│  ├─ Adobe Reader tmp files
+│  ├─ bash history
+│  ├─ backup files
+│  ├─ DS_Store files
+│  ├─ Thumbs.db files
+│  ├─ tmp files
+│  ├─ gedit recent documents
+│  ├─ Gnome run command history
+│  ├─ Gnome search history
+│  ├─ LibreOffice history
+│  ├─ links2 history
+│  ├─ SQLite3 history
+│  ├─ system clipboard
+│  ├─ desktop entry files
+│  ├─ recent documents
+│  └─ trash
+│
+└─ End Script
 ```
 
 ---
