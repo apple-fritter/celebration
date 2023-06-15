@@ -27,6 +27,11 @@ function separator {
 }
 ```
 
+#### Example Output
+```shell
+20230615, Thursday ---------------------------- 132900
+```
+
 #### Separator Explained
 
 ##### `datestring`
@@ -42,18 +47,13 @@ This variable calculates the length of the datestring using ${#datestring}. It r
 This variable calculates the length of dashes to fill the remaining space on the line. It is determined by subtracting the daylength and the length of timestring from the fixed width of 80 characters. This ensures that the divider line will always have a length of 80 characters, which can often be the default value width of a terminal window. This value can be changed to better reflect the user's indended design considerations.
 
 ##### `dashes`
-This variable uses printf to generate a string of dashes (-) with a length equal to dashlength. The %-${dashlength}s format specifier is used to left-align the dashes within the specified length.
+This variable uses printf to generate a string of dashes (-) with a length equal to dashlength. The `%-${dashlength}s` format specifier is used to left-align the dashes within the specified length.
 
-##### line:
+##### `line`
 This variable concatenates the datestring, dashes, and timestring together with spaces to construct the full divider line. It follows the format `<datestring> <dashes> <timestring>`.
 
 ##### `printf "%s\n%s\n" "$line"`
 This line uses `printf` to print the line, followed by a newline character `\n`, to display the divider line.
-
-#### Example Output
-```shell
-20230615, Thursday ---------------------------- 132900
-```
 
 ---
 
