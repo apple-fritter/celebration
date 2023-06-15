@@ -1,4 +1,4 @@
-# celebration
+# 🎉🕺💃🎊 celebration
 Discover how a properly formatted workspace can help you unleash your creative potential and bring your ideas to life with optimized configurations and scripts. Streamline your workflow, reduce errors, and create with ease by trying them out today.
 
 ---
