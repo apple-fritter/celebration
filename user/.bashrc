@@ -58,7 +58,9 @@ alias df='df -kTh'
 alias ls='ls -aclX --color'
 
 ## Alias to send a notification when a long running command is complete
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(
+    history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''
+)"'
 
 ## Alias to define default wget arguments, to appear as a web browser request
 alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0"'
