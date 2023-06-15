@@ -4,9 +4,12 @@ clear
 PROMPT_COMMAND='separator'
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
 function separator {
-    local datestring=$(date +"%A, %Y/%m/%d")
-    local timestring=$(date +"%H:%M:%S")
-    local line=$(printf "%s %-*s %*s" "-" "${#datestring}" "$datestring" "$(( $(tput cols) - ${#datestring} - ${#timestring} - 3 ))" "-" "$timestring")
+    local datestring=$(date +"%Y%m%d, %A")       # Get the current date and day of the week
+    local timestring=$(date +"%H%M%S")           # Get the current time
+    local daylength=${#datestring}               # Length of the date and day string
+    local dashlength=$(( 80 - daylength - ${#timestring} ))  # Length of dashes to fill remaining space
+    local dashes=$(printf "%-${dashlength}s" "-")  # Fill the remaining length with dashes
+    local line="$datestring $dashes $timestring"  # Construct the full divider line
     printf "%s\n%s\n" "$line"
 }
 
