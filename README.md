@@ -8,9 +8,42 @@ The `.bashrc` files in this project improve your experience and productivity whe
 - [superuser](https://github.com/apple-fritter/celebration/blob/main/root/.bashrc)
 - [regular user](https://github.com/apple-fritter/celebration/blob/main/user/.bashrc)
 
-Notable features include a visually appealing divider displaying the time and date stamp between prompts, which enhances the shell's appearance and aids in debugging.
+---
 
-Prompt levels PS1 and PS2 have been defined, enhancing the prompt's appearance.
+### Features
+Notable features include a visually appealing divider displaying the time and date stamp between prompts, which enhances the shell's appearance and aids in debugging:
+
+#### Source
+```shell
+# Prompt command to print a graphical divider with time and date stamp between shell prompts.
+function separator {
+    local datestring=$(date +"%Y%m%d, %A")       # Get the current date and day of the week
+    local timestring=$(date +"%H%M%S")           # Get the current time
+    local daylength=${#datestring}               # Length of the date and day string
+    local dashlength=$(( 80 - daylength - ${#timestring} ))  # Length of dashes to fill remaining space
+    local dashes=$(printf "%-${dashlength}s" "-")  # Fill the remaining length with dashes
+    local line="$datestring $dashes $timestring"  # Construct the full divider line
+    printf "%s\n%s\n" "$line"
+}
+```
+
+#### Example Output
+```shell
+20230615, Thursday ---------------------------- 132900
+```
+
+---
+
+### Prompt levels
+
+PS1 and PS2 have been defined, enhancing the prompt's appearance.
+
+```shell
+PS1='[\u \h] \w '
+PS2='▓▒░ '
+```
+
+---
 
 The `.bashrc` files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity. For instance, they
 * Establish the time format for long-running commands
