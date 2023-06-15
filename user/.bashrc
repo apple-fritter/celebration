@@ -63,7 +63,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 )"'
 
 ## Alias to define default wget arguments, to appear as a web browser request
-alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0"'
+alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Gecko/20100101 Firefox/109.0"'
 
 # System management shell scripts
 alias shcln="sh ~/cleaning_routine.sh"
