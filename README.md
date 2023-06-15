@@ -35,16 +35,17 @@ function separator {
 #### Separator Explained
 
 ##### `datestring`
-This variable stores the formatted current date and day of the week, using the format %Y%m%d, %A. For example, it might be "20230615, Thursday".
+This variable stores the formatted current date and day of the week, using the format `%Y%m%d, %A`. For example, it might be "20230615, Thursday".
 
 ##### `timestring`
-This variable stores the formatted current time, using the format %H%M%S. For example, it might be "132900" for 1:29 PM.
+This variable stores the formatted current time, using the format `%H%M%S`. For example, it might be "132900" for 1:29 PM.
 
 ##### `daylength`
-This variable calculates the length of the datestring using ${#datestring}. It represents the number of characters in the combined date and day of the week.
+This variable calculates the length of the datestring using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
 
 ##### `dashlength`
-This variable calculates the length of dashes to fill the remaining space on the line. It is determined by subtracting the daylength and the length of timestring from the fixed width of 80 characters. This ensures that the divider line will always have a length of 80 characters, which can often be the default value width of a terminal window. This value can be changed to better reflect the user's indended design considerations.
+This variable calculates the length of dashes to fill the remaining space on the line. It is determined by subtracting the `daylength` and the length of `timestring` from the fixed width of `80` characters.
+> This ensures that the divider line will always have a length of 80 characters, which can often be the default value width of a terminal window. This value can be changed to better reflect the user's indended design considerations.
 
 ##### `dashes`
 This variable uses printf to generate a string of dashes (-) with a length equal to dashlength. The `%-${dashlength}s` format specifier is used to left-align the dashes within the specified length.
