@@ -27,6 +27,29 @@ function separator {
 }
 ```
 
+#### Separator Explained
+
+##### `datestring`
+This variable stores the formatted current date and day of the week, using the format %Y%m%d, %A. For example, it might be "20230615, Thursday".
+
+##### `timestring`
+This variable stores the formatted current time, using the format %H%M%S. For example, it might be "132900" for 1:29 PM.
+
+##### `daylength`
+This variable calculates the length of the datestring using ${#datestring}. It represents the number of characters in the combined date and day of the week.
+
+##### `dashlength`
+This variable calculates the length of dashes to fill the remaining space on the line. It is determined by subtracting the daylength and the length of timestring from the fixed width of 80 characters. This ensures that the divider line will always have a length of 80 characters, which can often be the default value width of a terminal window. This value can be changed to better reflect the user's indended design considerations.
+
+##### `dashes`
+This variable uses printf to generate a string of dashes (-) with a length equal to dashlength. The %-${dashlength}s format specifier is used to left-align the dashes within the specified length.
+
+##### line:
+This variable concatenates the datestring, dashes, and timestring together with spaces to construct the full divider line. It follows the format `<datestring> <dashes> <timestring>`.
+
+##### `printf "%s\n%s\n" "$line"`
+This line uses `printf` to print the line, followed by a newline character `\n`, to display the divider line.
+
 #### Example Output
 ```shell
 20230615, Thursday ---------------------------- 132900
@@ -45,13 +68,33 @@ PS2='▓▒░ '
 
 ---
 
-The `.bashrc` files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity. For instance, they
-* Establish the time format for long-running commands
-* Provide aliases for disk usage and space
-* Show files with color and long format
-* Create an alias to notify users when a long-running command completes
-* Specify default wget arguments to appear as a web browser request
-* Include aliases for referencing system management shell scripts.
+The `.bashrc` files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity, and they includes aliases for referencing system management shell scripts also provided in this repository.
+
+##### Establish the time format for long-running commands
+```shell
+export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
+```
+
+##### Provide aliases for disk usage and space
+```shell
+alias du='du -kh'
+alias df='df -kTh'
+```
+
+##### Show files with color and long format
+```shell
+alias ls='ls -aclX --color'
+```
+
+##### Create an alias to notify users when a long-running command completes
+```shell
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+```
+##### Specify default wget arguments to appear as a web browser request
+```shell
+alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0"'
+```
 
 ---
 
