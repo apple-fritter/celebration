@@ -94,7 +94,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 )"'
 
 ```
-##### Specify default wget arguments to appear as a web browser request
+##### Specify default wget arguments to appear as a web browser request, supporting download resumes
 ```shell
 alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Gecko/20100101 Firefox/109.0"'
 ```
