@@ -15,15 +15,19 @@ Notable features include a visually appealing divider displaying the time and da
 
 #### Source
 ```shell
+PROMPT_COMMAND='separator'
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
-function separator {
-    local datestring=$(date +"%Y%m%d, %A")       # Get the current date and day of the week
-    local timestring=$(date +"%H%M%S")           # Get the current time
-    local daylength=${#datestring}               # Length of the date and day string
-    local dashlength=$(( 80 - daylength - ${#timestring} ))  # Length of dashes to fill remaining space
-    local dashes=$(printf "%-${dashlength}s" "-")  # Fill the remaining length with dashes
-    local line="$datestring $dashes $timestring"  # Construct the full divider line
-    printf "%s\n%s\n" "$line"
+function separator() {
+    local datestring=$(date +"%Y%m%d, %A")
+    local timestring=$(date +"%H%M%S")
+
+    local separator_length=80
+    local date_length=${#datestring}
+    local time_length=${#timestring}
+    local dash_length=$((separator_length - date_length - time_length - 2))
+
+    local line="$datestring $(printf "%*s" "$dash_length" | tr ' ' '-') $timestring"
+    printf "%s\n" "$line"
 }
 ```
 
