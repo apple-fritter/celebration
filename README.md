@@ -128,7 +128,7 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 │   └─ Continue to next step
 │
 ├─ Find unused schema files
-│   ├─ Find all schema files in <schema_dir> that don't contain "gettext"
+│   ├─ Find all schema files in <schema_dir> that are not referenced by installed applications, utilizing gsettings
 │   └─ Store list of unused schema files in UNUSED_SCHEMAS
 │
 ├─ Remove unused schema files
@@ -136,6 +136,10 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 │   │       ├─ Remove the schema file
 │   │       └─ Display "Removed <schema_file>"
 │   └─ Compile the remaining schema files
+│
+├─ Compile schemas
+│   ├─ Compile the remaining schema files in <schema_dir> using glib-compile-schemas command
+│   └─ Binary cache files for the schemas are generated
 │
 ├─ Clean up
 │   ├─ bash history
