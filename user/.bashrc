@@ -1,18 +1,20 @@
-﻿#!/bin/bash
-# When connecting a new shell session, always clear the terminal screen and greet user with the rotating MOTD text.
+#!/bin/bash
 clear
-cat ~/.motd.txt
 
 PROMPT_COMMAND='separator'
+
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
-function separator {
-    local datestring=$(date +"%Y%m%d, %A")       # Get the current date and day of the week
-    local timestring=$(date +"%H%M%S")           # Get the current time
-    local daylength=${#datestring}               # Length of the date and day string
-    local dashlength=$(( 80 - daylength - ${#timestring} ))  # Length of dashes to fill remaining space
-    local dashes=$(printf "%-${dashlength}s" "-")  # Fill the remaining length with dashes
-    local line="$datestring $dashes $timestring"  # Construct the full divider line
-    printf "%s\n%s\n" "$line"
+function separator() {
+    local datestring=$(date +"%Y%m%d, %A")
+    local timestring=$(date +"%H%M%S")
+
+    local separator_length=80
+    local date_length=${#datestring}
+    local time_length=${#timestring}
+    local dash_length=$((separator_length - date_length - time_length - 2))
+
+    local line="$datestring $(printf "%*s" "$dash_length" | tr ' ' '-') $timestring"
+    printf "%s\n" "$line"
 }
 
 # Set the time format for commands that take a long time to run
@@ -31,7 +33,7 @@ export HOSTFILE=$HOME/.hosts
 # Aliases
 
 ## Reload the .bashrc file.
-alias reload = 'source ~/.bashrc'
+alias reload='source /root/.bashrc'
 
 ## Add the -i flag to cp and mv to prompt before overwriting
 alias cp='cp -i'
@@ -58,17 +60,14 @@ alias df='df -kTh'
 alias ls='ls -aclX --color'
 
 ## Alias to send a notification when a long running command is complete
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(
-    history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''
-)"'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ## Alias to define default wget arguments, to appear as a web browser request
 alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Gecko/20100101 Firefox/109.0"'
 
 # System management shell scripts
 alias shcln="sh ~/cleaning_routine.sh"
-alias sorter="sh /root/nodupes.sh"
 alias zerofill="sh /root/unclefill.sh"
 
 PS1='[\u \h] \w '
-PS2='▓▒░ '
+PS2=$'▓▒░ '
