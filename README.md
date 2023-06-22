@@ -44,21 +44,26 @@ This variable stores the formatted current date and day of the week, using the f
 ##### `timestring`
 This variable stores the formatted current time, using the format `%H%M%S`. For example, it might be "132900" for 1:29 PM.
 
-##### `daylength`
-This variable calculates the length of the datestring using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
+##### `separator_length`
+This variable represents the desired length of the separator line. In the provided code, it is set to `80` characters, which is often the default width of a terminal window. You can adjust this value to fit your preferred design.
 
-##### `dashlength`
-This variable calculates the length of dashes to fill the remaining space on the line. It is determined by subtracting the `daylength` and the length of `timestring` from the fixed width of `80` characters.
-> This ensures that the divider line will always have a length of 80 characters, which can often be the default value width of a terminal window. This value can be changed to better reflect the user's indended design considerations.
+##### `date_length`
+This variable calculates the length of the `datestring` using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
+
+##### `time_length`
+This variable calculates the length of the `timestring` using `${#timestring}`. It represents the number of characters in the time.
+
+##### `dash_length`
+This variable calculates the length of dashes needed to fill the remaining space on the line. It is determined by subtracting the `date_length`, `time_length`, and `2` (for the spaces) from the `separator_length`.
 
 ##### `dashes`
-This variable uses printf to generate a string of dashes (-) with a length equal to dashlength. The `%-${dashlength}s` format specifier is used to left-align the dashes within the specified length.
+This variable uses `printf` to generate a string of dashes (`-`) with a length equal to `dash_length`. The `%*s` format specifier is used to create a field of spaces that is later filled with dashes.
 
 ##### `line`
-This variable concatenates the datestring, dashes, and timestring together with spaces to construct the full divider line. It follows the format `<datestring> <dashes> <timestring>`.
+This variable concatenates the `datestring`, the `dashes`, and the `timestring` together with spaces to construct the full divider line. It follows the format `<datestring> <dashes> <timestring>`.
 
-##### `printf "%s\n%s\n" "$line"`
-This line uses `printf` to print the line, followed by a newline character `\n`, to display the divider line.
+##### `printf "%s\n" "$line"`
+This line uses `printf` to print the `line`, followed by a newline character `\n`, to display the divider line.
 
 ---
 
@@ -96,10 +101,7 @@ alias ls='ls -aclX --color'
 
 ##### Create an alias to notify users when a long-running command completes
 ```shell
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(
-    history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\''
-)"'
-
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 ```
 ##### Specify default wget arguments to appear as a web browser request, supporting download resumes
 ```shell
