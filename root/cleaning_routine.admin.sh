@@ -1,30 +1,4 @@
-#!/bin/bash
-
-# Clean up home directory
-cd /root/
-rm -rv .cache/
-rm -v .wget-hsts
-
-# Define the directory that contains the schema files
-SCHEMA_DIR="/usr/share/glib-2.0/schemas"
-
-# Check if the directory exists
-if [ ! -d "$SCHEMA_DIR" ]
-  then echo "Directory $SCHEMA_DIR not found."
-  exit
-fi
-
-# Find all the schema files that are not used by any installed applications
-UNUSED_SCHEMAS=$(find $SCHEMA_DIR -type f -name "*.gschema.xml" -print0 | xargs -0 grep -L "gettext" 2>/dev/null)
-
-# Remove the unused schema files
-for schema in $UNUSED_SCHEMAS; do
-  rm -f $schema
-  echo "Removed $schema"
-done
-
-# Compile the remaining schema files
-glib-compile-schemas $SCHEMA_DIR
+#!/bin/bash
 
 # Clean up bash history
 find ~/.bash_history -delete
