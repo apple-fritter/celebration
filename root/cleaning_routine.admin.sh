@@ -21,7 +21,7 @@ SCHEMA_FILES=$(find "$SCHEMA_DIR" -type f -name "*.gschema.xml")
 # Remove the schema files that are not referenced by any installed applications
 for schema_file in $SCHEMA_FILES; do
   schema=$(basename "$schema_file" .gschema.xml)
-  if ! grep -q "^$schema$" <<< "$INSTALLED_APPS"; then
+if ! echo "$INSTALLED_APPS" | grep -q "^$schema$"; then
     rm -f "$schema_file"
     echo "Removed $schema_file"
   fi
