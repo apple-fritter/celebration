@@ -1,8 +1,3 @@
-#!/bin/bash
-
-#!/bin/bash
-
-# Schema maintenance revision co-authored by @apple-fritter and @bertgeeten
 # Define the directory that contains the schema files
 SCHEMA_DIR="/usr/share/glib-2.0/schemas"
 
@@ -21,7 +16,7 @@ SCHEMA_FILES=$(find "$SCHEMA_DIR" -type f -name "*.gschema.xml")
 # Remove the schema files that are not referenced by any installed applications
 for schema_file in $SCHEMA_FILES; do
   schema=$(basename "$schema_file" .gschema.xml)
-if ! echo "$INSTALLED_APPS" | grep -q "^$schema$"; then
+  if ! echo "$INSTALLED_APPS" | grep -q "^$schema$"; then
     rm -f "$schema_file"
     echo "Removed $schema_file"
   fi
@@ -29,7 +24,6 @@ done
 
 # Compile remaining schemas
 glib-compile-schemas /usr/share/glib-2.0/schemas
-
 
 # Clean up bash history
 find ~/.bash_history -delete
