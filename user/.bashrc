@@ -70,4 +70,4 @@ alias shcln="sh ~/cleaning_routine.sh"
 alias zerofill="sh /root/unclefill.sh"
 
 PS1='[\u \h] \w '
-PS2=$'▓▒░ '
+PS2='▓▒░ '
