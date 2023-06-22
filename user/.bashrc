@@ -33,7 +33,7 @@ export HOSTFILE=$HOME/.hosts
 # Aliases
 
 ## Reload the .bashrc file.
-alias reload='source /root/.bashrc'
+alias reload='source ~/.bashrc'
 
 ## Add the -i flag to cp and mv to prompt before overwriting
 alias cp='cp -i'
