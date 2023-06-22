@@ -71,4 +71,4 @@ alias upd="sh /root/update_installed_packages.sh"
 alias zerofill="sh /root/unclefill.sh"
 
 PS1='[\u \h] \w '
-PS2=$'▓▒░ '
+PS2='▓▒░ '
