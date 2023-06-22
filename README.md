@@ -77,7 +77,7 @@ PS2='▓▒░ '
 ```
 PS1='[\u \h] \w ', sets the prompt to display the username , hostname, and current working directory, such as `[user hostname] /home/user/`.
 
-PS2='▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
+PS2='▓▒░ 'sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
 
 ---
 
