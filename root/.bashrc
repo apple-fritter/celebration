@@ -11,10 +11,15 @@ function separator() {
     local separator_length=80
     local date_length=${#datestring}
     local time_length=${#timestring}
-    local dash_length=$((separator_length - date_length - time_length - 2))
+    local space_length=$((separator_length - date_length - time_length - 8))
 
-    local line="$datestring $(printf "%*s" "$dash_length" | tr ' ' '-') $timestring"
-    printf "%s\n" "$line"
+    local line_top="┌$(printf "%78s" | tr ' ' '-')┐"
+    local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
+    local line_bottom="└$(printf "%78s" | tr ' ' '-')┘"
+
+    printf "%s\n" "$line_top"
+    printf "%s\n" "$line_middle"
+    printf "%s\n" "$line_bottom"
 }
 
 # Set the time format for commands that take a long time to run
