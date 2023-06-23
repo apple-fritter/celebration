@@ -114,6 +114,8 @@ alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Geck
 #### [cleaning_routine.admin.sh](https://github.com/apple-fritter/celebration/blob/main/root/cleaning_routine.admin.sh)
 Executes a sequence of cleanup tasks to optimize system performance. It scans for all schema files that are not utilized by any installed applications and removes them to free up space.
 
+**THE SCHEMA CLEANER HAS BEEN DISABLED** until it is reliable.
+
 ```
 ┌─ Start Script
 │
