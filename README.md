@@ -118,10 +118,7 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 ```
 ┌─ Start Script
 │
-├─ Clean up home directory
-│   ├─ Remove .cache/ directory
-│   └─ Remove .wget-hsts
-│
+===============[BEGIN BROKEN SECTION]
 ├─ Check if the schema directory exists
 │   ├─ Directory doesn't exist
 │   │       └─ Display "Directory <schema_dir> not found." and exit
@@ -140,7 +137,7 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 ├─ Compile schemas
 │   ├─ Compile the remaining schema files in <schema_dir> using glib-compile-schemas command
 │   └─ Binary cache files for the schemas are generated
-│
+=================[END BROKEN SECTION]
 ├─ Clean up
 │   ├─ bash history
 │   ├─ backup files
