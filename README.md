@@ -33,37 +33,36 @@ function separator() {
 
 #### Example Output
 ```shell
-20230615, Thursday ---------------------------- 132900
+┌------------------------------------------------------------------------------┐
+│  20230615, Thursday                                                  132900  │
+└------------------------------------------------------------------------------┘ 
 ```
 
 #### Separator Explained
 
-##### `datestring`
-This variable stores the formatted current date and day of the week, using the format `%Y%m%d, %A`. For example, it might be "20230615, Thursday".
+The `separator()` function in the provided code generates a graphical divider with a time and date stamp between shell prompts.
 
-##### `timestring`
-This variable stores the formatted current time, using the format `%H%M%S`. For example, it might be "132900" for 1:29 PM.
+- `datestring`: This variable stores the formatted current date and day of the week, using the format `%Y%m%d, %A`. For example, it might be "20230615, Thursday".
 
-##### `separator_length`
-This variable represents the desired length of the separator line. In the provided code, it is set to `80` characters, which is often the default width of a terminal window. You can adjust this value to fit your preferred design.
+- `timestring`: This variable stores the formatted current time, using the format `%H%M%S`. For example, it might be "132900" for 1:29 PM.
 
-##### `date_length`
-This variable calculates the length of the `datestring` using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
+- `separator_length`: This variable represents the desired length of the separator line. In the provided code, it is set to `80` characters, which is often the default width of a terminal window. You can adjust this value to fit your preferred design.
 
-##### `time_length`
-This variable calculates the length of the `timestring` using `${#timestring}`. It represents the number of characters in the time.
+- `date_length`: This variable calculates the length of the `datestring` using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
 
-##### `dash_length`
-This variable calculates the length of dashes needed to fill the remaining space on the line. It is determined by subtracting the `date_length`, `time_length`, and `2` (for the spaces) from the `separator_length`.
+- `time_length`: This variable calculates the length of the `timestring` using `${#timestring}`. It represents the number of characters in the time.
 
-##### `dashes`
-This variable uses `printf` to generate a string of dashes (`-`) with a length equal to `dash_length`. The `%*s` format specifier is used to create a field of spaces that is later filled with dashes.
+- `space_length`: This variable calculates the number of spaces needed to fill the remaining space on the line. It is determined by subtracting the `date_length`, `time_length`, and `4` (for the spaces and vertical bars) from the `separator_length`.
 
-##### `line`
-This variable concatenates the `datestring`, the `dashes`, and the `timestring` together with spaces to construct the full divider line. It follows the format `<datestring> <dashes> <timestring>`.
+- `line_top`: This variable constructs the top line of the separator, consisting of an upper left corner character, a line of dashes (`-`) with a length equal to `space_length`, and an upper right corner character.
 
-##### `printf "%s\n" "$line"`
-This line uses `printf` to print the `line`, followed by a newline character `\n`, to display the divider line.
+- `line_middle`: This variable constructs the middle line of the separator, containing a vertical bar (`|`), a space, the `datestring`, a dynamic number of spaces to align the `timestring`, the `timestring`, a space, and another vertical bar.
+
+- `line_bottom`: This variable constructs the bottom line of the separator, similar to `line_top` but with a lower left corner character and a lower right corner character.
+
+The `printf` statements are used to print each line of the separator.
+
+Make sure to adjust the `separator_length` to your desired width, and feel free to modify the formatting to match your preferences.
 
 ---
 
@@ -77,7 +76,7 @@ PS2='▓▒░ '
 ```
 PS1='[\u \h] \w ', sets the prompt to display the username , hostname, and current working directory, such as `[user hostname] /home/user/`.
 
-PS2='▓▒░ 'sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
+PS2='▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
 
 ---
 
