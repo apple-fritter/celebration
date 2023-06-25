@@ -16,6 +16,7 @@ Notable features include a visually appealing divider displaying the time and da
 #### Source
 ```shell
 PROMPT_COMMAND='separator'
+
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
 function separator() {
     local datestring=$(date +"%Y%m%d, %A")
@@ -24,18 +25,23 @@ function separator() {
     local separator_length=80
     local date_length=${#datestring}
     local time_length=${#timestring}
-    local dash_length=$((separator_length - date_length - time_length - 2))
+    local space_length=$((separator_length - date_length - time_length - 8))
 
-    local line="$datestring $(printf "%*s" "$dash_length" | tr ' ' '-') $timestring"
-    printf "%s\n" "$line"
+    local line_top="┌$(printf "%78s" | tr ' ' ' ')┐"
+    local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
+    local line_bottom="└$(printf "%78s" | tr ' ' ' ')┘"
+
+    printf "%s\n" "$line_top"
+    printf "%s\n" "$line_middle"
+    printf "%s\n" "$line_bottom"
 }
 ```
 
 #### Example Output
 ```shell
-┌------------------------------------------------------------------------------┐
+┌                                                                              ┐
 │  20230615, Thursday                                                  132900  │
-└------------------------------------------------------------------------------┘ 
+└                                                                              ┘
 ```
 
 #### Separator Explained
@@ -54,7 +60,7 @@ The `separator()` function in the provided code generates a graphical divider wi
 
 - `space_length`: This variable calculates the number of spaces needed to fill the remaining space on the line. It is determined by subtracting the `date_length`, `time_length`, and `4` (for the spaces and vertical bars) from the `separator_length`.
 
-- `line_top`: This variable constructs the top line of the separator, consisting of an upper left corner character, a line of dashes (`-`) with a length equal to `space_length`, and an upper right corner character.
+- `line_top`: This variable constructs the top line of the separator, consisting of an upper left corner character, a line of spaces (` `) with a length equal to `space_length`, and an upper right corner character.
 
 - `line_middle`: This variable constructs the middle line of the separator, containing a vertical bar (`|`), a space, the `datestring`, a dynamic number of spaces to align the `timestring`, the `timestring`, a space, and another vertical bar.
 
@@ -71,10 +77,13 @@ Make sure to adjust the `separator_length` to your desired width, and feel free 
 PS1 and PS2 have been defined, enhancing the prompt's appearance.
 
 ```shell
-PS1='[\u \h] \w '
-PS2='▓▒░ '
+PS1='\n\u@\h\n[\w]\n'
+PS2='\n ▓▒░ '
 ```
-PS1='[\u \h] \w ', sets the prompt to display the username , hostname, and current working directory, such as `[user hostname] /home/user/`.
+PS1='\n\u@\h\n[\w]\n' sets the prompt to display the username , hostname, and current working directory, with a newline to form the prompt:
+> GitHubFAN23@macbookpro<br>
+> [~/Downloads]<br>
+> Prompt text goes here_
 
 PS2='▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
 
