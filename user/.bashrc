@@ -13,9 +13,9 @@ function separator() {
     local time_length=${#timestring}
     local space_length=$((separator_length - date_length - time_length - 8))
 
-    local line_top="┌$(printf "%78s" | tr ' ' '-')┐"
+    local line_top="┌$(printf "%78s" | tr ' ' ' ')┐"
     local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
-    local line_bottom="└$(printf "%78s" | tr ' ' '-')┘"
+    local line_bottom="└$(printf "%78s" | tr ' ' ' ')┘"
 
     printf "%s\n" "$line_top"
     printf "%s\n" "$line_middle"
@@ -74,5 +74,5 @@ alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Geck
 alias shcln="sh ~/cleaning_routine.sh"
 alias zerofill="sh /root/unclefill.sh"
 
-PS1='[\u \h] \w '
-PS2='▓▒░ '
+PS1='\n\u@\h\n[\w]\n'
+PS2='\n ▓▒░ '
