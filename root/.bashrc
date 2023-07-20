@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+cat ~/.terminal.txt
 
 PROMPT_COMMAND='separator'
 
