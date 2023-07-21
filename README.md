@@ -281,6 +281,22 @@ Inside the run_dos2unix_recursive() function:
 
 The main() function is defined to handle the execution of the script. It checks if any command-line arguments are provided (using $# -eq 0). If no arguments are provided, it sets the folder_path variable to the current working directory using $(pwd). If an argument is provided, it uses that as the folder_path. Finally, the main() function is called with the provided command-line arguments (main "$@").
 
+```
+┌─ Start Script
+│
+├─ Check if command-line arguments are provided
+│     ├─ No arguments provided:
+│     │  │
+│     │  └─ Set folder_path to the current working directory ($(pwd))
+│     │
+│     └─ Arguments provided
+│        └─ Set folder_path to the provided argument
+│
+├─ Call the run_dos2unix_recursive() function with folder_path
+│
+└─ End Script
+```
+
 ---
 
 ## [Disclaimer](DISCLAIMER)
