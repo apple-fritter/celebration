@@ -268,6 +268,19 @@ Optimizes system performance by rebuilding the Mozilla Firefox configuration fro
 └─ End Script
 ```
 
+### Common Scripts
+#### d0s2unix
+This script is a bash shell script designed to convert text files from DOS/Windows line endings (CRLF - Carriage Return Line Feed) to Unix line endings (LF - Line Feed). When you run this script with a folder path as an argument or without any argument, it will convert all the text files in that folder and its subfolders from DOS/Windows line endings to Unix line endings using the dos2unix command. This is useful when you have files that were created or edited on Windows systems and need to be used on Unix-based systems.
+
+The run_dos2unix_recursive() function is defined to handle the recursive conversion of files in subfolders. It takes one argument, which is the folder path to be processed.
+
+Inside the run_dos2unix_recursive() function:
+- It loops over all files and folders within the provided folder path using the for loop.
+- If the current item in the loop is a subfolder (directory), the function calls itself (run_dos2unix_recursive) recursively to process files within that subfolder.
+- If the current item is a regular file, it uses the dos2unix command to convert the file's line endings from DOS/Windows format to Unix format.
+
+The main() function is defined to handle the execution of the script. It checks if any command-line arguments are provided (using $# -eq 0). If no arguments are provided, it sets the folder_path variable to the current working directory using $(pwd). If an argument is provided, it uses that as the folder_path. Finally, the main() function is called with the provided command-line arguments (main "$@").
+
 ---
 
 ## [Disclaimer](DISCLAIMER)
