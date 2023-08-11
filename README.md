@@ -88,7 +88,7 @@ PS1='\n\u@\h\n[\w]\n' sets the prompt to display the username , hostname, and cu
 > [~/Downloads]<br>
 > Prompt text goes here_
 
-PS2='▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
+PS2='\n ▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
 
 ---
 
