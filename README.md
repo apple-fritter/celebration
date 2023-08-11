@@ -282,7 +282,7 @@ Inside the run_dos2unix_recursive() function:
 - If the current item in the loop is a subfolder (directory), the function calls itself (run_dos2unix_recursive) recursively to process files within that subfolder.
 - If the current item is a regular file, it uses the dos2unix command to convert the file's line endings from DOS/Windows format to Unix format.
 
-The main() function is defined to handle the execution of the script. It checks if any command-line arguments are provided (using $# -eq 0). If no arguments are provided, it sets the folder_path variable to the current working directory using $(pwd). If an argument is provided, it uses that as the folder_path. Finally, the main() function is called with the provided command-line arguments (main "$@").
+The main() function is defined to handle the execution of the script. It checks if any command-line arguments are provided using '$# -eq 0'. If no arguments are provided, it sets the folder_path variable to the current working directory using $(pwd). If an argument is provided, it uses that as the folder_path. Finally, the main() function is called with the provided command-line arguments 'main "$@"'.
 
 ```
 ┌─ Start Script
