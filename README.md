@@ -171,23 +171,6 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 └─ End Script
 ```
 
-#### [nodupes.sh](https://github.com/apple-fritter/celebration/blob/main/root/nodupes.sh)
-Sorts a text file alphabetically and eliminates duplicated lines, saving time and effort while ensuring data accuracy and integrity. 
-
-```
-┌─ Start Script
-│
-├─ Sort the contents of file <input_file>
-│     └─ Store the sorted output in a temporary file <input_file>.tmp
-│
-├─ Remove duplicate lines from the sorted output
-│     └─ Store the unique lines in the temporary file <input_file>.tmp
-│
-├─ Rename the temporary file <input_file>.tmp to <input_file>
-│
-└─ End Script
-```
-
 #### [update_installed_packages.sh](https://github.com/apple-fritter/celebration/blob/main/root/update_installed_packages.sh)
 Automates the process of updating all installed software packages on your system. By running the script from a root prompt, it will automatically search for and install any available updates. This saves time and effort while also keeping your system secure and up-to-date.
 ```
@@ -201,32 +184,6 @@ Automates the process of updating all installed software packages on your system
 │
 └─ End Script
 ```
-
-#### [unclefill.sh](https://github.com/apple-fritter/celebration/blob/main/root/unclefill.sh)
-Quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
-```
-┌─ Start Script
-│
-├─ Define input_file and output_file variables from command line arguments
-│     └─ Assign the value of the first command line argument to input_file
-│     └─ Assign the value of the second command line argument to output_file
-│
-├─ Check if either input_file or output_file is empty
-│     ├─ If either file is empty
-│     │     └─ Prompt user for input file path
-│     │     └─ Prompt user for output file path
-│     └─ If both input_file and output_file are provided
-│           └─ Check if the number of arguments is greater than 2
-│                 └─ Display an error message to stderr
-│                 └─ Exit the script with status code 1
-│
-├─ Use a while loop to continuously append input_file contents to output_file
-│     └─ Append the contents of input_file to output_file
-│
-└─ End Script
-```
-
-> The while loop continuously appends the contents of the input file to the output file indefinitely, which may result in an infinite loop. You may want to consider adding a condition or an exit condition within the loop to ensure it doesn't run indefinitely.
 
 ---
 
@@ -272,7 +229,24 @@ Optimizes system performance by rebuilding the Mozilla Firefox configuration fro
 ```
 
 ### Common Scripts
-#### d0s2unix
+
+#### [nodup.sh](https://github.com/apple-fritter/celebration/blob/main/root/nodup.sh)
+Sorts a text file alphabetically and eliminates duplicated lines, saving time and effort while ensuring data accuracy and integrity. 
+```
+┌─ Start Script
+│
+├─ Sort the contents of file <input_file>
+│     └─ Store the sorted output in a temporary file <input_file>.tmp
+│
+├─ Remove duplicate lines from the sorted output
+│     └─ Store the unique lines in the temporary file <input_file>.tmp
+│
+├─ Rename the temporary file <input_file>.tmp to <input_file>
+│
+└─ End Script
+```
+
+#### [d0s2unix.sh](https://github.com/apple-fritter/celebration/blob/main/root/d0s2unix.sh)
 This script is a bash shell script designed to convert text files from `DOS/Windows` line endings `CRLF - Carriage Return Line Feed` to `Unix` line endings `LF - Line Feed`. When you run this script with a folder path as an argument or without any argument, it will convert all the text files in that folder and its subfolders from DOS/Windows line endings to Unix line endings using the dos2unix command. This is useful when you have files that were created or edited on Windows systems and need to be used on Unix-based systems.
 
 The `run_dos2unix_recursive` function is defined to handle the recursive conversion of files in subfolders. It takes one argument, which is the folder path to be processed.
@@ -298,6 +272,32 @@ The `main` function is defined to handle the execution of the script.
 │
 └─ End Script
 ```
+
+#### [unclefill.sh](https://github.com/apple-fritter/celebration/blob/main/root/unclefill.sh)
+Quickly fills a target file with a specified input pattern, making it useful for generating large amounts of sample data for testing or demonstration purposes.
+```
+┌─ Start Script
+│
+├─ Define input_file and output_file variables from command line arguments
+│     └─ Assign the value of the first command line argument to input_file
+│     └─ Assign the value of the second command line argument to output_file
+│
+├─ Check if either input_file or output_file is empty
+│     ├─ If either file is empty
+│     │     └─ Prompt user for input file path
+│     │     └─ Prompt user for output file path
+│     └─ If both input_file and output_file are provided
+│           └─ Check if the number of arguments is greater than 2
+│                 └─ Display an error message to stderr
+│                 └─ Exit the script with status code 1
+│
+├─ Use a while loop to continuously append input_file contents to output_file
+│     └─ Append the contents of input_file to output_file
+│
+└─ End Script
+```
+
+> The while loop continuously appends the contents of the input file to the output file indefinitely, which may result in an infinite loop. You may want to consider adding a condition or an exit condition within the loop to ensure it doesn't run indefinitely.
 
 ---
 
