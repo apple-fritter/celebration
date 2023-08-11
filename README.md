@@ -31,6 +31,7 @@ function separator() {
     local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
     local line_bottom="└$(printf "%78s" | tr ' ' ' ')┘"
 
+    printf "%s\n"
     printf "%s\n" "$line_top"
     printf "%s\n" "$line_middle"
     printf "%s\n" "$line_bottom"
@@ -39,9 +40,11 @@ function separator() {
 
 #### Example Output
 ```shell
+
 ┌                                                                              ┐
 │  20230615, Thursday                                                  132900  │
 └                                                                              ┘
+
 ```
 
 #### Separator Explained
