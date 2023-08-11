@@ -2,6 +2,7 @@
 clear
 
 PROMPT_COMMAND='separator'
+cat ~/.terminal.txt
 
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
 function separator() {
@@ -17,6 +18,7 @@ function separator() {
     local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
     local line_bottom="└$(printf "%78s" | tr ' ' ' ')┘"
 
+    printf "%s\n"
     printf "%s\n" "$line_top"
     printf "%s\n" "$line_middle"
     printf "%s\n" "$line_bottom"
@@ -72,7 +74,11 @@ alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Geck
 
 # System management shell scripts
 alias shcln="sh ~/cleaning_routine.sh"
-alias zerofill="sh /root/unclefill.sh"
+
+# File manipulation
+alias dos2="sh ~/d0s2unix.sh"
+alias nodup="sh ~/nodup.sh"
+alias zerofill="sh ~/unclefill.sh"
 
 PS1='\n\u@\h\n[\w]\n'
 PS2='\n ▓▒░ '
