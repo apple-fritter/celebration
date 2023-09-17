@@ -1,6 +1,8 @@
 # 🎉🕺💃🎊 celebration
 Discover how a properly formatted workspace can help you unleash your creative potential and bring your ideas to life with optimized configurations and scripts. Streamline your workflow, reduce errors, and create with ease by trying them out today.
 
+Previously, aliases were rolled into the .bashrc file. As of the 16 September commits, all aliases have been moved over to a ".bash_aliases" file, as appropriate per userlevel.
+
 ---
 
 ## .bashrc Files
@@ -92,7 +94,7 @@ PS2='\n ▓▒░ ' sets the secondary prompt to show a pattern of block charact
 
 ---
 
-The `.bashrc` files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity, and they includes aliases for referencing system management shell scripts also provided in this repository.
+These files also comprise various settings and aliases that streamline frequently used commands, making them more efficient while the history command and history ignoring commands' format have been tailored to enhance productivity, and they includes aliases for referencing system management shell scripts also provided in this repository.
 
 ##### Establish the time format for long-running commands
 ```shell
