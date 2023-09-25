@@ -49,6 +49,10 @@ function separator() {
 
 ```
 
+#### Screenshot
+
+![Screenshot_2023-09-25_15-08-36](https://github.com/apple-fritter/celebration/assets/125221355/a5531511-defc-49ee-8958-6cfb501674ea)
+
 #### Separator Explained
 
 The `separator()` function in the provided code generates a graphical divider with a time and date stamp between shell prompts.
