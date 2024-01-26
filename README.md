@@ -316,4 +316,4 @@ Quickly fills a target file with a specified input pattern, making it useful for
 
 ## License
 
-These files released under the [MIT License](LICENSE).
+These files released under the [MIT License](LICENSE.md).
