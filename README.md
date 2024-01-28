@@ -129,7 +129,7 @@ alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Ubuntu 23.04; rv:109.0) Geck
 
 ## Scripts:
 ### Superuser scripts:
-#### [cleaning_routine.admin.sh](https://github.com/apple-fritter/celebration/blob/main/root/cleaning_routine.admin.sh)
+#### [cleaning_routine.admin.sh](https://github.com/apple-fritter/celebration/blob/main/root/Scripts/cleaning_routine.admin.sh)
 Executes a sequence of cleanup tasks to optimize system performance. It scans for all schema files that are not utilized by any installed applications and removes them to free up space.
 
 **THE SCHEMA CLEANER HAS BEEN DISABLED** until it is reliable.
@@ -177,7 +177,7 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 └─ End Script
 ```
 
-#### [update_installed_packages.sh](https://github.com/apple-fritter/celebration/blob/main/root/update_installed_packages.sh)
+#### [update_installed_packages.sh](https://github.com/apple-fritter/celebration/blob/main/root/Scripts/update_installed_packages.sh)
 Automates the process of updating all installed software packages on your system. By running the script from a root prompt, it will automatically search for and install any available updates. This saves time and effort while also keeping your system secure and up-to-date.
 ```
 ┌─ Start Script
@@ -194,44 +194,41 @@ Automates the process of updating all installed software packages on your system
 ---
 
 ### Regular User Scripts:
-#### [cleaning_routine.sh](https://github.com/apple-fritter/celebration/blob/main/user/cleaning_routine.sh)
+#### [cleaning_routine.sh](https://github.com/apple-fritter/celebration/blob/main/user/Scripts/cleaning_routine.sh)
 Optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. 
 ```
 ┌─ Start Script
 │
 ├─ Set working directory to the user's home
 │
-├─ Remove
-│  ├─ .wget-hsts
-│  ├─ .cache/ directory
-│  ├─ .android/ directory
-│  ├─ .mozilla/ directory
-│  ├─ .bash_history
-│  └─ .sudo_as_admin_successful
+├─ Home Directory Cleanup
+│  ├─ Remove ~/.cache/ and ~/.android/
+│  └─ Remove specific files: .xsession-errors*, .wget-hsts, .bash_history, .sudo_as_admin_successful
 │
-├─ Rebuild Mozilla Firefox configuration from backup skeleton using p7zip
+├─ Rebuild Browser Configuration
+│  ├─ Remove browser config directories: ~/.config/BraveSoftware, ~/.config/chromium, ~/.mozilla/
+│  └─ Rebuild browser config from skeleton file (browser-skel.7z)
 │
-├─ Clean up
-│  ├─ Adobe Reader cache
-│  ├─ Adobe Reader MRU
-│  ├─ Adobe Reader tmp files
-│  ├─ bash history
-│  ├─ backup files
-│  ├─ DS_Store files
-│  ├─ Thumbs.db files
-│  ├─ tmp files
-│  ├─ gedit recent documents
-│  ├─ Gnome run command history
-│  ├─ Gnome search history
-│  ├─ LibreOffice history
-│  ├─ links2 history
-│  ├─ SQLite3 history
-│  ├─ system clipboard
-│  ├─ desktop entry files
-│  ├─ recent documents
-│  └─ trash
+├─ Clean Up Backup Files
+│  └─ Delete files with .bak extension
 │
-└─ End Script
+├─ Clean Up DS_Store Files
+│  └─ Delete .DS_Store files
+│
+├─ Clean Up Thumbs.db Files
+│  └─ Delete Thumbs.db files
+│
+├─ Clean Up tmp Files
+│  └─ Delete files with .tmp extension
+│
+├─ Remove Editor Cruft
+│  └─ Remove editor config directories: ~/.config/geany/, ~/.config/Code/, ~/.config/featherpad/, ~/.vscode
+│
+├─ Clean Up Desktop Entry Files
+│  └─ Delete .desktop files in ~/.local/share/applications/
+│
+└─ Clean Up Trash
+   └─ Delete contents of ~/.local/share/Trash/
 ```
 
 ### Common Scripts
