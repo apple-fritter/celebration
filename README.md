@@ -84,18 +84,18 @@ Make sure to adjust the `separator_length` to your desired width, and feel free 
 
 ### Prompt levels
 
-PS1 and PS2 have been defined, enhancing the prompt's appearance.
+`PS1` and `PS2` have been defined, enhancing the prompt's appearance.
 
 ```shell
 PS1='\n\u@\h\n[\w]\n'
 PS2='\n ▓▒░ '
 ```
-PS1='\n\u@\h\n[\w]\n' sets the prompt to display the username , hostname, and current working directory, with a newline to form the prompt:
+`PS1='\n\u@\h\n[\w]\n'` sets the prompt to display the username , hostname, and current working directory, with a newline to form the prompt:
 > GitHubFAN23@macbookpro<br>
 > [~/Downloads]<br>
 > Prompt text goes here_
 
-PS2='\n ▓▒░ ' sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
+`PS2='\n ▓▒░ '` sets the secondary prompt to show a pattern of block characters. This prompt level provides visual indication that more input is expected.
 
 ---
 
