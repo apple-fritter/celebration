@@ -106,8 +106,8 @@ These files also comprise various settings and aliases that streamline frequentl
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 ```
 
-##### Progress bar for 'dd'!
-This alias includes the 'status=progress' option, which provides real-time information on the transfer speed, amount of data transferred, and estimated time remaining.
+##### Progress bar for `dd`!
+This alias includes the `status=progress` option, which provides real-time information on the transfer speed, amount of data transferred, and estimated time remaining.
 ```shell
 alias dd='dd status=progress'
 ```
