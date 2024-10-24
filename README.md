@@ -57,8 +57,8 @@ function separator() {
 ```
 
 #### Screenshot
-
-![Screenshot_2024-01-28_18-21-29](https://github.com/apple-fritter/celebration/assets/125221355/c458f347-1355-44f2-aaa6-089c3f92df6d)<br>The pictured [.conkyrc file](https://github.com/apple-fritter/.conkyrc) can be found at `https://github.com/apple-fritter/.conkyrc`.
+![Screenshot_2024-10-24_10-37-13](https://github.com/user-attachments/assets/3a5ebde3-03cb-40b2-93b8-91abc741ed3b)
+<br>The pictured [.conkyrc file](https://github.com/apple-fritter/.conkyrc) can be found at `https://github.com/apple-fritter/.conkyrc`.
 
 #### Separator Explained
 
