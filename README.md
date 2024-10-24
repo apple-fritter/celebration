@@ -133,13 +133,29 @@ alias ls='ls -aclX --color'
 
 ##### Create an alias to notify users when a long-running command completes
 ```shell
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send --urgency=low \
+  -i "$([ $? = 0 ] && echo terminal || echo error)" \
+  "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )"'
 ```
-##### Specify default wget arguments to appear as a web browser request, supporting download resumes
+##### Specify default wget arguments
+###### To appear as a web browser request, supporting download resumes 
 ```shell
-alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0"'
+alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"'
 ```
 
+###### To easily mirror(scrape) a website 
+```shell
+alias wgetmirror='wget --mirror \
+  --convert-links \
+  --adjust-extension \
+  --page-requisites \
+  --no-parent \
+  -c \
+  -w 2.2 \
+  -e robots=off \
+  --no-check-certificate \
+  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"'
+```
 ---
 
 ## Scripts:
@@ -188,7 +204,6 @@ Executes a sequence of cleanup tasks to optimize system performance. It scans fo
 │
 ├─ Remove packages that are no longer needed
 ├─ Clear the local package cache
-│
 └─ End Script
 ```
 
@@ -209,6 +224,7 @@ Automates the process of updating all installed software packages on your system
 ---
 
 ### Regular User Scripts:
+
 #### [cleaning_routine.sh](https://github.com/apple-fritter/celebration/blob/main/user/Scripts/cleaning_routine.sh)
 Optimizes system performance by rebuilding the Mozilla Firefox configuration from scratch using a backup skeleton, if available. The script also cleans up various files and directories that tend to accumulate over time and occupy valuable storage space. 
 ```
@@ -245,6 +261,9 @@ Optimizes system performance by rebuilding the Mozilla Firefox configuration fro
 └─ Clean Up Trash
    └─ Delete contents of ~/.local/share/Trash/
 ```
+
+#### [packagelist.sh](https://github.com/apple-fritter/celebration/blob/main/user/Scripts/packagelist.sh)
+This script retrieves a list of installed packages on a Debian-based system and saves the package names along with their versions to a tab separated text file, located in the user's Documents directory `~/Documents`
 
 ### Common Scripts
 
