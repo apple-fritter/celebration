@@ -1,8 +1,6 @@
 # 🎉🕺💃🎊 celebration
 Discover how a properly formatted workspace can help you unleash your creative potential and bring your ideas to life with optimized configurations and scripts. Streamline your workflow, reduce errors, and create with ease by trying them out today.
 
-Previously, aliases were rolled into the .bashrc file. As of the 16 September commits, all aliases have been moved over to a ".bash_aliases" file, as appropriate per userlevel.
-
 ---
 
 ## .bashrc Files
@@ -22,21 +20,30 @@ PROMPT_COMMAND='separator'
 # Prompt command to print a graphical divider with time and date stamp between shell prompts.
 function separator() {
     local datestring=$(date +"%Y%m%d, %A")
-    local timestring=$(date +"%H%M%S")
-
-    local separator_length=80
+    local timestring=$(date +"%H:%M:%S")
+    local separator_length=$(tput cols)
     local date_length=${#datestring}
     local time_length=${#timestring}
     local space_length=$((separator_length - date_length - time_length - 8))
 
-    local line_top="┌$(printf "%78s" | tr ' ' ' ')┐"
-    local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
-    local line_bottom="└$(printf "%78s" | tr ' ' ' ')┘"
+    if (( space_length < 0 )); then
+        space_length=0
+    fi
 
-    printf "%s\n"
-    printf "%s\n" "$line_top"
-    printf "%s\n" "$line_middle"
-    printf "%s\n" "$line_bottom"
+    # Calculate the actual line length excluding the borders
+    local line_content_length=$((date_length + space_length + time_length + 4))  # 4 for " │ "
+    
+    # Create the top and bottom lines based on content length
+    local line_top="┌$(printf "%-$((separator_length - 2))s" "" | tr ' ' ' ')┐"
+    local line_bottom="└$(printf "%-$((separator_length - 2))s" "" | tr ' ' ' ')┘"
+
+    # Construct the middle line
+    local line_middle="│ $(printf " %s %${space_length}s %s " "$datestring" "" "$timestring") │"
+
+    # Print the lines with colors
+    printf "\e[1;34m%s\e[0m\n" "$line_top"
+    printf "\e[1;37m%s\e[0m\n" "$line_middle"
+    printf "\e[1;34m%s\e[0m\n" "$line_bottom"
 }
 ```
 
@@ -55,30 +62,31 @@ function separator() {
 
 #### Separator Explained
 
+This `separator` function creates a visually appealing separator line in a terminal that displays the current date and time, formatted in a specific way. Here’s a breakdown of how it works:
 
-The `separator()` function in the provided code generates a graphical divider with a time and date stamp between shell prompts.
+1. **Date and Time Retrieval**:
+   - It fetches the current date in the format `YYYYMMDD, DayOfWeek` and the current time in `HH:MM:SS` format.
 
-- `datestring`: This variable stores the formatted current date and day of the week, using the format `%Y%m%d, %A`. For example, it might be "20230615, Thursday".
+2. **Terminal Width Calculation**:
+   - It determines the width of the terminal using `tput cols` to create a dynamic separator that fits the screen.
 
-- `timestring`: This variable stores the formatted current time, using the format `%H%M%S`. For example, it might be "132900" for 1:29 PM.
+3. **Space Calculation**:
+   - It calculates the space needed between the date and time based on the terminal width, accounting for the lengths of the date and time strings, as well as some extra characters for borders and padding.
 
-- `separator_length`: This variable represents the desired length of the separator line. In the provided code, it is set to `80` characters, which is often the default width of a terminal window. You can adjust this value to fit your preferred design.
+4. **Handling Short Widths**:
+   - If the calculated space is negative (meaning there’s not enough room), it sets the space to zero to avoid errors.
 
-- `date_length`: This variable calculates the length of the `datestring` using `${#datestring}`. It represents the number of characters in the combined date and day of the week.
+5. **Line Construction**:
+   - It constructs the top and bottom borders using `┌` and `└`, filling the space in between with spaces.
+   - The middle line combines the date and time with appropriate spacing and is framed by vertical bars (`│`).
 
-- `time_length`: This variable calculates the length of the `timestring` using `${#timestring}`. It represents the number of characters in the time.
+6. **Color Formatting**:
+   - The top and bottom lines are printed in blue, and the middle line (which contains the date and time) is printed in white, using ANSI escape codes for color.
 
-- `space_length`: This variable calculates the number of spaces needed to fill the remaining space on the line. It is determined by subtracting the `date_length`, `time_length`, and `4` (for the spaces and vertical bars) from the `separator_length`.
+7. **Output**:
+   - Finally, it prints the three lines to create a boxed effect around the current date and time.
 
-- `line_top`: This variable constructs the top line of the separator, consisting of an upper left corner character, a line of spaces (` `) with a length equal to `space_length`, and an upper right corner character.
-
-- `line_middle`: This variable constructs the middle line of the separator, containing a vertical bar (`|`), a space, the `datestring`, a dynamic number of spaces to align the `timestring`, the `timestring`, a space, and another vertical bar.
-
-- `line_bottom`: This variable constructs the bottom line of the separator, similar to `line_top` but with a lower left corner character and a lower right corner character.
-
-The `printf` statements are used to print each line of the separator.
-
-Make sure to adjust the `separator_length` to your desired width, and feel free to modify the formatting to match your preferences.
+This function provides a nice visual separator for output in a terminal, making it easy to read the current date and time at a glance.
 
 ---
 
