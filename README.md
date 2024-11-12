@@ -140,7 +140,7 @@ alias alert='notify-send --urgency=low \
 ##### Specify default wget arguments
 ###### To appear as a web browser request, supporting download resumes 
 ```shell
-alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"'
+alias wget='wget -c --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"'
 ```
 
 ###### To easily mirror(scrape) a website 
@@ -154,7 +154,7 @@ alias wgetmirror='wget --mirror \
   -w 2.2 \
   -e robots=off \
   --no-check-certificate \
-  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"'
+  --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"'
 ```
 ---
 
